@@ -29,7 +29,11 @@ metadata:
   labels:
     app: openshift-gitops
   annotations:
-    apps.open-cluster-management.io/github-path: ocp-gitops/ocp-gitops 
+    apps.open-cluster-management.io/github-path: ocp-gitops 
+    apps.open-cluster-management.io/git-branch: RHACM
+    apps.open-cluster-management.io/git-current-commit: 
+    apps.open-cluster-management.io/git-path: ocp-gitops
+    apps.open-cluster-management.io/reconcile-option: merge
 spec:
   channel: openshift-operators/argocd-app
   placement:
