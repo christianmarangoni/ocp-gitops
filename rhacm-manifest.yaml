@@ -2,7 +2,7 @@
 apiVersion: apps.open-cluster-management.io/v1
 kind: Channel
 metadata:
-  name: openshift-gitops
+  name: channel-openshift-gitops
   namespace: openshift-gitops
 spec:
   type: Git
@@ -11,7 +11,7 @@ spec:
 apiVersion: apps.open-cluster-management.io/v1
 kind: PlacementRule
 metadata:
-  name: openshift-gitops-placement
+  name: pr-openshift-gitops
   namespace: openshift-gitops
 spec:
   clusterConditions:
@@ -24,7 +24,7 @@ spec:
 apiVersion: apps.open-cluster-management.io/v1
 kind: Subscription
 metadata:
-  name: openshift-gitops
+  name: sub-openshift-gitops
   namespace: openshift-gitops
   labels:
     app: openshift-gitops
@@ -35,11 +35,11 @@ metadata:
     apps.open-cluster-management.io/git-path: ocp-gitops
     apps.open-cluster-management.io/reconcile-option: merge
 spec:
-  channel: openshift-operators/openshift-gitops
+  channel: channel-openshift-gitops/openshift-gitops
   placement:
     placementRef:
       kind: PlacementRule
-      name: openshift-gitops-placement
+      name: pr-openshift-gitops
 ---
 apiVersion: app.k8s.io/v1beta1
 kind: Application
@@ -56,4 +56,4 @@ spec:
     - key: app
       operator: In
       values:
-      - openshift-gitops
+      - sub-openshift-gitops
