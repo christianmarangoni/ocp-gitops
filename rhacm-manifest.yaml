@@ -35,7 +35,7 @@ metadata:
     apps.open-cluster-management.io/git-path: ocp-gitops
     apps.open-cluster-management.io/reconcile-option: merge
 spec:
-  channel: openshift-operators/argocd-app
+  channel: openshift-operators/openshift-gitops
   placement:
     placementRef:
       kind: PlacementRule
