@@ -35,7 +35,7 @@ metadata:
     apps.open-cluster-management.io/git-path: ocp-gitops
     apps.open-cluster-management.io/reconcile-option: merge
 spec:
-  channel: channel-openshift-gitops/openshift-gitops
+  channel: openshift-gitops/channel-openshift-gitops
   placement:
     placementRef:
       kind: PlacementRule
