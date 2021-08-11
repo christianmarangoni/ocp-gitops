@@ -56,4 +56,4 @@ spec:
     - key: app
       operator: In
       values:
-      - sub-openshift-gitops
+      - openshift-gitops
