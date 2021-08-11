@@ -2,7 +2,7 @@ apiVersion: apps.open-cluster-management.io/v1
 kind: Channel
 metadata:
   name: channel-openshift-gitops
-  namespace: openshift-gitops
+  namespace: acm-ocpgitops
 spec:
   type: Git
   pathname: https://github.com/christianmarangoni/ocp-gitops.git
