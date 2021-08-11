@@ -4,7 +4,6 @@ metadata:
   finalizers:
   - argoproj.io/finalizer
   name: openshift-gitops
-  namespace: openshift-gitops
 spec:
   controller:
     processors: {}
