@@ -1,7 +1,7 @@
 # Folder structure 
 
-##root-subscription
+## root-subscription
 
-##managed-subscriptions
+## managed-subscriptions
 
-##common-managed
+## common-managed
