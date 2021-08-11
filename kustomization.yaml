@@ -1,0 +1,4 @@
+resources:
+- openshift-gitops-object/apps/cluster-a-app.yml
+- openshift-gitops-object/apps/indetation-example/cluster-a-appproject.yml
+- operator-openshift-gitops/openshift-gitops-instance.yaml
