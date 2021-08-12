@@ -5,17 +5,17 @@ metadata:
   namespace: acm-ocpgitops
   labels:
     app: openshift-gitops
+    pr: pr-openshift-gitops
   annotations:
     apps.open-cluster-management.io/github-path:  
     apps.open-cluster-management.io/git-branch: testing.gitops
     apps.open-cluster-management.io/git-current-commit: 
     apps.open-cluster-management.io/git-path: ocp-gitops
-    apps.open-cluster-management.io/reconcile-option: merge
+    apps.open-cluster-management.io/reconcile-option: replace
 spec:
   channel: acm-ocpgitops/channel-openshift-gitops
   sourceNamespace:
   source:
-  name:
   packageFilter:
     version:
     labelSelector:
@@ -29,9 +29,6 @@ spec:
     - path:
       value:
   placement:
-    local:
-    clusters:
-      name:
     clusterSelector:
     placementRef:
       kind: PlacementRule
@@ -41,13 +38,5 @@ spec:
     clusterOverrides:
       path:
       value:
-  time:
-    Window:
-      type:
-      location:
-      daysofweek:
-      hours:
-        - start:
-          end:
 
 
