@@ -2,7 +2,7 @@ apiVersion: apps.open-cluster-management.io/v1
 kind: PlacementRule
 metadata:
   name: pr-openshift-gitops
-  namespace: acm-ocpgitops-prod
+  namespace: acm-ocpgitops
 spec:
   clusterConditions:
     - type: ManagedClusterConditionAvailable
