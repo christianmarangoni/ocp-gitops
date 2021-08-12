@@ -13,7 +13,31 @@ metadata:
     apps.open-cluster-management.io/reconcile-option: merge
 spec:
   channel: acm-ocpgitops/channel-openshift-gitops
+  sourceNamespace:
+  source:
+  name:
+  packageFilter:
+    version:
+    labelSelector:
+      matchLabels:
+        package:
+        component:
+    annotations:
+  packageOverrides:
+  - packageName:
+    packageAlias:
+    - path:
+      value:
   placement:
+    local:
+    clusters:
+      name:
+    clusterSelector:
     placementRef:
       kind: PlacementRule
       name: pr-openshift-gitops
+  overrides:
+    clusterName:
+    clusterOverrides:
+      path:
+      value:
