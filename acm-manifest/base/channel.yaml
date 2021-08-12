@@ -8,3 +8,5 @@ metadata:
 spec:
   type: Git
   pathname: https://github.com/christianmarangoni/ocp-gitops.git
+##  secretRef: reference for secret for channel
+##    name:
