@@ -3,6 +3,8 @@ kind: Channel
 metadata:
   name: channel-openshift-gitops
   namespace: acm-ocpgitops
+  annotations:
+    apps.open-cluster-management.io/reconcile-rate: high
 spec:
   type: Git
   pathname: https://github.com/christianmarangoni/ocp-gitops.git
