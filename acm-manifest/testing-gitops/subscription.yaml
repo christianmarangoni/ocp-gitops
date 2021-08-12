@@ -1,0 +1,53 @@
+apiVersion: apps.open-cluster-management.io/v1
+kind: Subscription
+metadata:
+  name: sub-openshift-gitops-prod
+  namespace: acm-ocpgitops
+  labels:
+    app: openshift-gitops
+  annotations:
+    apps.open-cluster-management.io/github-path:  
+    apps.open-cluster-management.io/git-branch: testing.gitops
+    apps.open-cluster-management.io/git-current-commit: 
+    apps.open-cluster-management.io/git-path: ocp-gitops
+    apps.open-cluster-management.io/reconcile-option: merge
+spec:
+  channel: acm-ocpgitops/channel-openshift-gitops
+  sourceNamespace:
+  source:
+  name:
+  packageFilter:
+    version:
+    labelSelector:
+      matchLabels:
+        package:
+        component:
+    annotations:
+  packageOverrides:
+  - packageName:
+    packageAlias:
+    - path:
+      value:
+  placement:
+    local:
+    clusters:
+      name:
+    clusterSelector:
+    placementRef:
+      kind: PlacementRule
+      name: pr-openshift-gitops
+  overrides:
+    clusterName:
+    clusterOverrides:
+      path:
+      value:
+  time:
+    Window:
+      type:
+      location:
+      daysofweek:
+      hours:
+        - start:
+          end:
+
+

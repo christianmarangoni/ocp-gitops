@@ -1,0 +1,36 @@
+apiVersion: apps.open-cluster-management.io/v1
+kind: PlacementRule
+metadata:
+  name: pr-openshift-gitops
+  namespace: acm-ocpgitops
+  resourceVersion:
+  labels:
+    app:
+    chart:
+    release:
+    heritage:
+  selfLink:
+  uid:
+spec:
+  clusterSelector:
+    matchLabels:
+      local-cluster: "true"
+      datacenter:
+      environment:
+    matchExprssions:
+     - key:
+       operator:
+       values:
+       - 
+  clusterReplicas:
+  clusterConditions:
+    - type: ManagedClusterConditionAvailable
+      status: "True"
+  ResourceHint:
+    type:
+    order:
+  Policies:
+status:
+  decisions:
+    clusterName:
+    clusterNamespace:
