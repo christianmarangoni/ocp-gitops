@@ -17,6 +17,11 @@ spec:
       local-cluster: "true"
       datacenter:
       environment:
+    matchExprssions:
+     - key:
+       operator:
+       values:
+       - 
   clusterReplicas:
   clusterConditions:
     - type: ManagedClusterConditionAvailable
@@ -29,4 +34,3 @@ status:
   decisions:
     clusterName:
     clusterNamespace:
-    
