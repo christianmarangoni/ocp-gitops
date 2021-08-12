@@ -25,3 +25,8 @@ spec:
     type:
     order:
   Policies:
+status:
+  decisions:
+    clusterName:
+    clusterNamespace:
+    
