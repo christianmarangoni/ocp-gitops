@@ -41,3 +41,13 @@ spec:
     clusterOverrides:
       path:
       value:
+  time:
+    Window:
+      type:
+      location:
+      daysofweek:
+      hours:
+        - start:
+          end:
+
+
