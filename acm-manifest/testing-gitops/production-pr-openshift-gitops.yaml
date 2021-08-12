@@ -3,10 +3,25 @@ kind: PlacementRule
 metadata:
   name: pr-openshift-gitops
   namespace: acm-ocpgitops
+  resourceVersion:
+  labels:
+    app:
+    chart:
+    release:
+    heritage:
+  selfLink:
+  uid:
 spec:
-  clusterConditions:
-    - type: ManagedClusterConditionAvailable
-      status: "True"
   clusterSelector:
     matchLabels:
       local-cluster: "true"
+      datacenter:
+      environment:
+  clusterReplicas:
+  clusterConditions:
+    - type: ManagedClusterConditionAvailable
+      status: "True"
+  ResourceHint:
+    type:
+    order:
+  Policies:
