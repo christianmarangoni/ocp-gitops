@@ -15,3 +15,5 @@ spec:
       operator: In
       values:
       - openshift-gitops
+    matchLabels:
+      key: value
