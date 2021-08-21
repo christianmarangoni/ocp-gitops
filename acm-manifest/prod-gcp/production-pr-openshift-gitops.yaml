@@ -12,4 +12,3 @@ spec:
   clusterSelector:
     matchLabels:
       role: "bc"
-  clusterReplicas: 
