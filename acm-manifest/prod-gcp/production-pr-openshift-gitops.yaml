@@ -4,7 +4,7 @@ metadata:
   name: pr-openshift-gitops
   namespace: acm-ocpgitops-prod
   labels:
-    app: penshift-gitops
+    app: openshift-gitops
 spec:
   clusterConditions:
     - type: ManagedClusterConditionAvailable
