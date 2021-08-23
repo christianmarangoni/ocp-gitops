@@ -18,4 +18,4 @@ spec:
   placement:
     placementRef:
       kind: PlacementRule
-      name: pr-openshift-gitops
+      name: openshift-gitops-placementrule
