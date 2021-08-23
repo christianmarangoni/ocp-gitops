@@ -2,7 +2,7 @@ apiVersion: apps.open-cluster-management.io/v1
 kind: Channel
 metadata:
   name: channel-openshift-gitops
-  namespace: acm-ocpgitops
+  namespace: ns-channel-ocpgitops
   labels:
    app: openshift-gitops
   annotations:

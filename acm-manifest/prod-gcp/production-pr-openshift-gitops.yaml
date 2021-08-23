@@ -1,8 +1,8 @@
 apiVersion: apps.open-cluster-management.io/v1
 kind: PlacementRule
 metadata:
-  name: pr-openshift-gitops
-  namespace: acm-ocpgitops-prod
+  name: openshift-gitops-placementrule
+  namespace: openshift-gitops
   labels:
     app: openshift-gitops
 spec:
