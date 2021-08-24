@@ -1,0 +1,385 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  generateName: openshift-gitops-application-controller-
+  annotations:
+    k8s.v1.cni.cncf.io/network-status: |-
+      [{
+          "name": "openshift-sdn",
+          "interface": "eth0",
+          "ips": [
+              "10.129.2.219"
+          ],
+          "default": true,
+          "dns": {}
+      }]
+    k8s.v1.cni.cncf.io/networks-status: |-
+      [{
+          "name": "openshift-sdn",
+          "interface": "eth0",
+          "ips": [
+              "10.129.2.219"
+          ],
+          "default": true,
+          "dns": {}
+      }]
+    openshift.io/scc: anyuid
+  resourceVersion: '8334996'
+  name: openshift-gitops-application-controller-0
+  uid: b9a27315-c145-443c-a62d-41d39294992c
+  creationTimestamp: '2021-08-24T06:31:12Z'
+  managedFields:
+    - manager: kube-controller-manager
+      operation: Update
+      apiVersion: v1
+      time: '2021-08-24T06:31:12Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:generateName': {}
+          'f:labels':
+            .: {}
+            'f:app.kubernetes.io/name': {}
+            'f:controller-revision-hash': {}
+            'f:statefulset.kubernetes.io/pod-name': {}
+          'f:ownerReferences':
+            .: {}
+            'k:{"uid":"97fadaa6-8305-4aef-9f85-905057149b89"}':
+              .: {}
+              'f:apiVersion': {}
+              'f:blockOwnerDeletion': {}
+              'f:controller': {}
+              'f:kind': {}
+              'f:name': {}
+              'f:uid': {}
+        'f:spec':
+          'f:volumes':
+            .: {}
+            'k:{"name":"argocd-repo-server-tls"}':
+              .: {}
+              'f:name': {}
+              'f:secret':
+                .: {}
+                'f:defaultMode': {}
+                'f:optional': {}
+                'f:secretName': {}
+          'f:containers':
+            'k:{"name":"argocd-application-controller"}':
+              'f:image': {}
+              'f:volumeMounts':
+                .: {}
+                'k:{"mountPath":"/app/config/controller/tls"}':
+                  .: {}
+                  'f:mountPath': {}
+                  'f:name': {}
+              'f:terminationMessagePolicy': {}
+              .: {}
+              'f:resources':
+                .: {}
+                'f:limits':
+                  .: {}
+                  'f:cpu': {}
+                  'f:memory': {}
+                'f:requests':
+                  .: {}
+                  'f:cpu': {}
+                  'f:memory': {}
+              'f:command': {}
+              'f:livenessProbe':
+                .: {}
+                'f:failureThreshold': {}
+                'f:httpGet':
+                  .: {}
+                  'f:path': {}
+                  'f:port': {}
+                  'f:scheme': {}
+                'f:initialDelaySeconds': {}
+                'f:periodSeconds': {}
+                'f:successThreshold': {}
+                'f:timeoutSeconds': {}
+              'f:readinessProbe':
+                .: {}
+                'f:failureThreshold': {}
+                'f:httpGet':
+                  .: {}
+                  'f:path': {}
+                  'f:port': {}
+                  'f:scheme': {}
+                'f:initialDelaySeconds': {}
+                'f:periodSeconds': {}
+                'f:successThreshold': {}
+                'f:timeoutSeconds': {}
+              'f:terminationMessagePath': {}
+              'f:imagePullPolicy': {}
+              'f:ports':
+                .: {}
+                'k:{"containerPort":8082,"protocol":"TCP"}':
+                  .: {}
+                  'f:containerPort': {}
+                  'f:protocol': {}
+              'f:name': {}
+          'f:hostname': {}
+          'f:dnsPolicy': {}
+          'f:serviceAccount': {}
+          'f:restartPolicy': {}
+          'f:subdomain': {}
+          'f:schedulerName': {}
+          'f:terminationGracePeriodSeconds': {}
+          'f:serviceAccountName': {}
+          'f:enableServiceLinks': {}
+          'f:securityContext':
+            .: {}
+            'f:seLinuxOptions':
+              'f:level': {}
+          'f:affinity':
+            .: {}
+            'f:podAntiAffinity':
+              .: {}
+              'f:preferredDuringSchedulingIgnoredDuringExecution': {}
+    - manager: multus
+      operation: Update
+      apiVersion: v1
+      time: '2021-08-24T06:31:14Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            'f:k8s.v1.cni.cncf.io/network-status': {}
+            'f:k8s.v1.cni.cncf.io/networks-status': {}
+    - manager: kubelet
+      operation: Update
+      apiVersion: v1
+      time: '2021-08-24T06:31:17Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:status':
+          'f:conditions':
+            'k:{"type":"ContainersReady"}':
+              .: {}
+              'f:lastProbeTime': {}
+              'f:lastTransitionTime': {}
+              'f:message': {}
+              'f:reason': {}
+              'f:status': {}
+              'f:type': {}
+            'k:{"type":"Initialized"}':
+              .: {}
+              'f:lastProbeTime': {}
+              'f:lastTransitionTime': {}
+              'f:status': {}
+              'f:type': {}
+            'k:{"type":"Ready"}':
+              .: {}
+              'f:lastProbeTime': {}
+              'f:lastTransitionTime': {}
+              'f:message': {}
+              'f:reason': {}
+              'f:status': {}
+              'f:type': {}
+          'f:containerStatuses': {}
+          'f:hostIP': {}
+          'f:phase': {}
+          'f:podIP': {}
+          'f:podIPs':
+            .: {}
+            'k:{"ip":"10.129.2.219"}':
+              .: {}
+              'f:ip': {}
+          'f:startTime': {}
+  namespace: openshift-gitops
+  ownerReferences:
+    - apiVersion: apps/v1
+      kind: StatefulSet
+      name: openshift-gitops-application-controller
+      uid: 97fadaa6-8305-4aef-9f85-905057149b89
+      controller: true
+      blockOwnerDeletion: true
+  labels:
+    app.kubernetes.io/name: openshift-gitops-application-controller
+    controller-revision-hash: openshift-gitops-application-controller-6b749f665b
+    statefulset.kubernetes.io/pod-name: openshift-gitops-application-controller-0
+spec:
+  restartPolicy: Always
+  serviceAccountName: openshift-gitops-argocd-application-controller
+  imagePullSecrets:
+    - name: openshift-gitops-argocd-application-controller-dockercfg-4cbrt
+  priority: 0
+  subdomain: openshift-gitops-application-controller
+  schedulerName: default-scheduler
+  enableServiceLinks: true
+  affinity:
+    podAntiAffinity:
+      preferredDuringSchedulingIgnoredDuringExecution:
+        - weight: 100
+          podAffinityTerm:
+            labelSelector:
+              matchLabels:
+                app.kubernetes.io/name: openshift-gitops-argocd-application-controller
+            topologyKey: kubernetes.io/hostname
+        - weight: 5
+          podAffinityTerm:
+            labelSelector:
+              matchLabels:
+                app.kubernetes.io/part-of: argocd
+            topologyKey: kubernetes.io/hostname
+  terminationGracePeriodSeconds: 30
+  preemptionPolicy: PreemptLowerPriority
+  nodeName: one-r2r8r-worker-d-gzp7c.us-east1-d.c.ocp4lab-269214.internal
+  securityContext:
+    seLinuxOptions:
+      level: 's0:c25,c15'
+  containers:
+    - resources:
+        limits:
+          cpu: '2'
+          memory: 2Gi
+        requests:
+          cpu: 250m
+          memory: 1Gi
+      readinessProbe:
+        httpGet:
+          path: /healthz
+          port: 8082
+          scheme: HTTP
+        initialDelaySeconds: 5
+        timeoutSeconds: 1
+        periodSeconds: 10
+        successThreshold: 1
+        failureThreshold: 3
+      terminationMessagePath: /dev/termination-log
+      name: argocd-application-controller
+      command:
+        - argocd-application-controller
+        - '--operation-processors'
+        - '10'
+        - '--redis'
+        - 'openshift-gitops-redis.openshift-gitops.svc.cluster.local:6379'
+        - '--repo-server'
+        - 'openshift-gitops-repo-server.openshift-gitops.svc.cluster.local:8081'
+        - '--status-processors'
+        - '20'
+      livenessProbe:
+        httpGet:
+          path: /healthz
+          port: 8082
+          scheme: HTTP
+        initialDelaySeconds: 5
+        timeoutSeconds: 1
+        periodSeconds: 10
+        successThreshold: 1
+        failureThreshold: 3
+      securityContext:
+        capabilities:
+          drop:
+            - MKNOD
+      ports:
+        - containerPort: 8082
+          protocol: TCP
+      imagePullPolicy: Always
+      volumeMounts:
+        - name: argocd-repo-server-tls
+          mountPath: /app/config/controller/tls
+        - name: kube-api-access-8cp2d
+          readOnly: true
+          mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      terminationMessagePolicy: File
+      image: >-
+        registry.redhat.io/openshift-gitops-1/argocd-rhel8@sha256:3e6521a3610b23dce99f4eb643171ac9172808e86f3ca4154f5d548a286bb95f
+  hostname: openshift-gitops-application-controller-0
+  serviceAccount: openshift-gitops-argocd-application-controller
+  volumes:
+    - name: argocd-repo-server-tls
+      secret:
+        secretName: argocd-repo-server-tls
+        defaultMode: 420
+        optional: true
+    - name: kube-api-access-8cp2d
+      projected:
+        sources:
+          - serviceAccountToken:
+              expirationSeconds: 3607
+              path: token
+          - configMap:
+              name: kube-root-ca.crt
+              items:
+                - key: ca.crt
+                  path: ca.crt
+          - downwardAPI:
+              items:
+                - path: namespace
+                  fieldRef:
+                    apiVersion: v1
+                    fieldPath: metadata.namespace
+          - configMap:
+              name: openshift-service-ca.crt
+              items:
+                - key: service-ca.crt
+                  path: service-ca.crt
+        defaultMode: 420
+  dnsPolicy: ClusterFirst
+  tolerations:
+    - key: node.kubernetes.io/not-ready
+      operator: Exists
+      effect: NoExecute
+      tolerationSeconds: 300
+    - key: node.kubernetes.io/unreachable
+      operator: Exists
+      effect: NoExecute
+      tolerationSeconds: 300
+    - key: node.kubernetes.io/memory-pressure
+      operator: Exists
+      effect: NoSchedule
+status:
+  phase: Running
+  conditions:
+    - type: Initialized
+      status: 'True'
+      lastProbeTime: null
+      lastTransitionTime: '2021-08-24T06:31:12Z'
+    - type: Ready
+      status: 'False'
+      lastProbeTime: null
+      lastTransitionTime: '2021-08-24T06:31:12Z'
+      reason: ContainersNotReady
+      message: 'containers with unready status: [argocd-application-controller]'
+    - type: ContainersReady
+      status: 'False'
+      lastProbeTime: null
+      lastTransitionTime: '2021-08-24T06:31:12Z'
+      reason: ContainersNotReady
+      message: 'containers with unready status: [argocd-application-controller]'
+    - type: PodScheduled
+      status: 'True'
+      lastProbeTime: null
+      lastTransitionTime: '2021-08-24T06:31:12Z'
+  hostIP: 10.0.128.4
+  podIP: 10.129.2.219
+  podIPs:
+    - ip: 10.129.2.219
+  startTime: '2021-08-24T06:31:12Z'
+  containerStatuses:
+    - restartCount: 8
+      started: false
+      ready: false
+      name: argocd-application-controller
+      state:
+        waiting:
+          reason: CrashLoopBackOff
+          message: >-
+            back-off 5m0s restarting failed
+            container=argocd-application-controller
+            pod=openshift-gitops-application-controller-0_openshift-gitops(b9a27315-c145-443c-a62d-41d39294992c)
+      imageID: >-
+        registry.redhat.io/openshift-gitops-1/argocd-rhel8@sha256:22642741933feb2b5650847c39b0ca2f412d6acba66782e4e44f4ef94c7731fb
+      image: >-
+        registry.redhat.io/openshift-gitops-1/argocd-rhel8@sha256:3e6521a3610b23dce99f4eb643171ac9172808e86f3ca4154f5d548a286bb95f
+      lastState:
+        terminated:
+          exitCode: 20
+          reason: Error
+          startedAt: '2021-08-24T06:47:39Z'
+          finishedAt: '2021-08-24T06:47:40Z'
+          containerID: >-
+            cri-o://6e1cdb3e68bb73ec8309ee4161c932c4c4e507dee2a6bf9923989c105d9b70fb
+      containerID: 'cri-o://6e1cdb3e68bb73ec8309ee4161c932c4c4e507dee2a6bf9923989c105d9b70fb'
+  qosClass: Burstable

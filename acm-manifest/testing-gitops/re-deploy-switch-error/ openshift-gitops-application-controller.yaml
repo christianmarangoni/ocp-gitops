@@ -1,0 +1,258 @@
+kind: StatefulSet
+apiVersion: apps/v1
+metadata:
+  resourceVersion: '8327076'
+  name: openshift-gitops-application-controller
+  uid: 97fadaa6-8305-4aef-9f85-905057149b89
+  creationTimestamp: '2021-08-24T06:04:39Z'
+  generation: 1
+  managedFields:
+    - manager: gitops-operator
+      operation: Update
+      apiVersion: apps/v1
+      time: '2021-08-24T06:04:39Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:labels':
+            .: {}
+            'f:app.kubernetes.io/component': {}
+            'f:app.kubernetes.io/managed-by': {}
+            'f:app.kubernetes.io/name': {}
+            'f:app.kubernetes.io/part-of': {}
+          'f:ownerReferences':
+            .: {}
+            'k:{"uid":"9c5dc1ea-9431-4906-b20f-63eb0aeb7674"}':
+              .: {}
+              'f:apiVersion': {}
+              'f:blockOwnerDeletion': {}
+              'f:controller': {}
+              'f:kind': {}
+              'f:name': {}
+              'f:uid': {}
+        'f:spec':
+          'f:podManagementPolicy': {}
+          'f:replicas': {}
+          'f:revisionHistoryLimit': {}
+          'f:selector': {}
+          'f:serviceName': {}
+          'f:template':
+            'f:metadata':
+              'f:labels':
+                .: {}
+                'f:app.kubernetes.io/name': {}
+            'f:spec':
+              'f:volumes':
+                .: {}
+                'k:{"name":"argocd-repo-server-tls"}':
+                  .: {}
+                  'f:name': {}
+                  'f:secret':
+                    .: {}
+                    'f:defaultMode': {}
+                    'f:optional': {}
+                    'f:secretName': {}
+              'f:containers':
+                'k:{"name":"argocd-application-controller"}':
+                  'f:image': {}
+                  'f:volumeMounts':
+                    .: {}
+                    'k:{"mountPath":"/app/config/controller/tls"}':
+                      .: {}
+                      'f:mountPath': {}
+                      'f:name': {}
+                  'f:terminationMessagePolicy': {}
+                  .: {}
+                  'f:resources':
+                    .: {}
+                    'f:limits':
+                      .: {}
+                      'f:cpu': {}
+                      'f:memory': {}
+                    'f:requests':
+                      .: {}
+                      'f:cpu': {}
+                      'f:memory': {}
+                  'f:command': {}
+                  'f:livenessProbe':
+                    .: {}
+                    'f:failureThreshold': {}
+                    'f:httpGet':
+                      .: {}
+                      'f:path': {}
+                      'f:port': {}
+                      'f:scheme': {}
+                    'f:initialDelaySeconds': {}
+                    'f:periodSeconds': {}
+                    'f:successThreshold': {}
+                    'f:timeoutSeconds': {}
+                  'f:readinessProbe':
+                    .: {}
+                    'f:failureThreshold': {}
+                    'f:httpGet':
+                      .: {}
+                      'f:path': {}
+                      'f:port': {}
+                      'f:scheme': {}
+                    'f:initialDelaySeconds': {}
+                    'f:periodSeconds': {}
+                    'f:successThreshold': {}
+                    'f:timeoutSeconds': {}
+                  'f:terminationMessagePath': {}
+                  'f:imagePullPolicy': {}
+                  'f:ports':
+                    .: {}
+                    'k:{"containerPort":8082,"protocol":"TCP"}':
+                      .: {}
+                      'f:containerPort': {}
+                      'f:protocol': {}
+                  'f:name': {}
+              'f:dnsPolicy': {}
+              'f:serviceAccount': {}
+              'f:restartPolicy': {}
+              'f:schedulerName': {}
+              'f:terminationGracePeriodSeconds': {}
+              'f:serviceAccountName': {}
+              'f:securityContext': {}
+              'f:affinity':
+                .: {}
+                'f:podAntiAffinity':
+                  .: {}
+                  'f:preferredDuringSchedulingIgnoredDuringExecution': {}
+          'f:updateStrategy':
+            'f:rollingUpdate':
+              .: {}
+              'f:partition': {}
+            'f:type': {}
+    - manager: kube-controller-manager
+      operation: Update
+      apiVersion: apps/v1
+      time: '2021-08-24T06:31:12Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:status':
+          'f:collisionCount': {}
+          'f:currentReplicas': {}
+          'f:currentRevision': {}
+          'f:observedGeneration': {}
+          'f:replicas': {}
+          'f:updateRevision': {}
+          'f:updatedReplicas': {}
+  namespace: openshift-gitops
+  ownerReferences:
+    - apiVersion: argoproj.io/v1alpha1
+      kind: ArgoCD
+      name: openshift-gitops
+      uid: 9c5dc1ea-9431-4906-b20f-63eb0aeb7674
+      controller: true
+      blockOwnerDeletion: true
+  labels:
+    app.kubernetes.io/component: application-controller
+    app.kubernetes.io/managed-by: openshift-gitops
+    app.kubernetes.io/name: openshift-gitops-application-controller
+    app.kubernetes.io/part-of: openshift-gitops
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: openshift-gitops-application-controller
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app.kubernetes.io/name: openshift-gitops-application-controller
+    spec:
+      restartPolicy: Always
+      serviceAccountName: openshift-gitops-argocd-application-controller
+      schedulerName: default-scheduler
+      affinity:
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+            - weight: 100
+              podAffinityTerm:
+                labelSelector:
+                  matchLabels:
+                    app.kubernetes.io/name: openshift-gitops-argocd-application-controller
+                topologyKey: kubernetes.io/hostname
+            - weight: 5
+              podAffinityTerm:
+                labelSelector:
+                  matchLabels:
+                    app.kubernetes.io/part-of: argocd
+                topologyKey: kubernetes.io/hostname
+      terminationGracePeriodSeconds: 30
+      securityContext: {}
+      containers:
+        - resources:
+            limits:
+              cpu: '2'
+              memory: 2Gi
+            requests:
+              cpu: 250m
+              memory: 1Gi
+          readinessProbe:
+            httpGet:
+              path: /healthz
+              port: 8082
+              scheme: HTTP
+            initialDelaySeconds: 5
+            timeoutSeconds: 1
+            periodSeconds: 10
+            successThreshold: 1
+            failureThreshold: 3
+          terminationMessagePath: /dev/termination-log
+          name: argocd-application-controller
+          command:
+            - argocd-application-controller
+            - '--operation-processors'
+            - '10'
+            - '--redis'
+            - 'openshift-gitops-redis.openshift-gitops.svc.cluster.local:6379'
+            - '--repo-server'
+            - >-
+              openshift-gitops-repo-server.openshift-gitops.svc.cluster.local:8081
+            - '--status-processors'
+            - '20'
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: 8082
+              scheme: HTTP
+            initialDelaySeconds: 5
+            timeoutSeconds: 1
+            periodSeconds: 10
+            successThreshold: 1
+            failureThreshold: 3
+          ports:
+            - containerPort: 8082
+              protocol: TCP
+          imagePullPolicy: Always
+          volumeMounts:
+            - name: argocd-repo-server-tls
+              mountPath: /app/config/controller/tls
+          terminationMessagePolicy: File
+          image: >-
+            registry.redhat.io/openshift-gitops-1/argocd-rhel8@sha256:3e6521a3610b23dce99f4eb643171ac9172808e86f3ca4154f5d548a286bb95f
+      serviceAccount: openshift-gitops-argocd-application-controller
+      volumes:
+        - name: argocd-repo-server-tls
+          secret:
+            secretName: argocd-repo-server-tls
+            defaultMode: 420
+            optional: true
+      dnsPolicy: ClusterFirst
+  serviceName: openshift-gitops-application-controller
+  podManagementPolicy: OrderedReady
+  updateStrategy:
+    type: RollingUpdate
+    rollingUpdate:
+      partition: 0
+  revisionHistoryLimit: 10
+status:
+  observedGeneration: 1
+  replicas: 1
+  currentReplicas: 1
+  updatedReplicas: 1
+  currentRevision: openshift-gitops-application-controller-6b749f665b
+  updateRevision: openshift-gitops-application-controller-6b749f665b
+  collisionCount: 0
