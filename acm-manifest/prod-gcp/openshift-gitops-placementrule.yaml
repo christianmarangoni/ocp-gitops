@@ -2,13 +2,17 @@ apiVersion: apps.open-cluster-management.io/v1
 kind: PlacementRule
 metadata:
   name: openshift-gitops-placementrule
-  namespace: openshift-gitops
+  namespace: acm-openshift-gitops
   labels:
     app: openshift-gitops
 spec:
   clusterConditions:
     - type: ManagedClusterConditionAvailable
       status: "True"
+status:
+  decisions:
+    clusterName:
+    clusterNamespace: openshift-gitops
   clusterSelector:
     matchLabels:
       role: "bc"
