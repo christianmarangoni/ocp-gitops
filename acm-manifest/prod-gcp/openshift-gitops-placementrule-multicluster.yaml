@@ -11,10 +11,10 @@ spec:
       status: "True"
   clusterSelector:
     matchExpressions:
-    - key: region
+    - key: role
       operator: In
       values:
-      - one
-      - two
+      - active
+      - bc
     matchLabels: {}
   clusterReplicas: 1
