@@ -23,4 +23,6 @@ spec:
         values:
         - active
         - bc
-    
+    placementRef:
+      kind: PlacementRule
+      name: openshift-gitops-placementrule
