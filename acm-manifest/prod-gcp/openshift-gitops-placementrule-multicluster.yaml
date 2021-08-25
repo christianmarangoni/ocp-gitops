@@ -1,0 +1,20 @@
+apiVersion: apps.open-cluster-management.io/v1
+kind: PlacementRule
+metadata:
+  name: openshift-gitops-placementrule
+  namespace: openshift-gitops
+  labels:
+    app: openshift-gitops
+spec:
+  clusterConditions:
+    - type: "ManagedClusterConditionAvailable"
+      status: "True"
+  clusterSelector:
+    matchExpressions:
+    - key: region
+      operator: In
+      values:
+      - one
+      - two
+    matchLabels: {}
+  clusterReplicas: 1
