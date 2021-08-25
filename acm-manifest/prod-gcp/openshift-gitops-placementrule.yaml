@@ -9,10 +9,6 @@ spec:
   clusterConditions:
     - type: ManagedClusterConditionAvailable
       status: "True"
-status:
-  decisions:
-    clusterName:
-    clusterNamespace: openshift-gitops
   clusterSelector:
     matchLabels:
       role: "bc"
