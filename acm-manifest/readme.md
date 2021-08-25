@@ -1,6 +1,6 @@
 
 # note from rela app
-
+```
 apiVersion: app.k8s.io/v1beta1
 kind: Application
 metadata:
@@ -57,3 +57,4 @@ spec:
   clusterSelector:
     matchLabels:
       role: bc
+```
