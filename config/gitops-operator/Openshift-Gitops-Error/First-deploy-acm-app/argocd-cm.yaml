@@ -1,0 +1,95 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: argocd-cm
+  namespace: openshift-gitops
+  uid: f7fdc2b6-5a35-4e99-b6db-f3dd4d2dbe05
+  resourceVersion: '9507711'
+  creationTimestamp: '2021-08-25T22:57:58Z'
+  labels:
+    app.kubernetes.io/managed-by: openshift-gitops
+    app.kubernetes.io/name: argocd-cm
+    app.kubernetes.io/part-of: argocd
+  ownerReferences:
+    - apiVersion: argoproj.io/v1alpha1
+      kind: ArgoCD
+      name: openshift-gitops
+      uid: 0ea626e7-b104-4ab8-aae5-7fa5070318d4
+      controller: true
+      blockOwnerDeletion: true
+  managedFields:
+    - manager: gitops-operator
+      operation: Update
+      apiVersion: v1
+      time: '2021-08-25T22:59:42Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:data':
+          'f:oidc.config': {}
+          'f:resource.inclusions': {}
+          'f:users.anonymous.enabled': {}
+          'f:kustomize.buildOptions': {}
+          'f:configManagementPlugins': {}
+          'f:repository.credentials': {}
+          .: {}
+          'f:admin.enabled': {}
+          'f:statusbadge.enabled': {}
+          'f:resource.exclusions': {}
+          'f:application.instanceLabelKey': {}
+          'f:ga.trackingid': {}
+          'f:ga.anonymizeusers': {}
+          'f:url': {}
+          'f:repositories': {}
+          'f:help.chatText': {}
+          'f:help.chatUrl': {}
+        'f:metadata':
+          'f:labels':
+            .: {}
+            'f:app.kubernetes.io/managed-by': {}
+            'f:app.kubernetes.io/name': {}
+            'f:app.kubernetes.io/part-of': {}
+          'f:ownerReferences':
+            .: {}
+            'k:{"uid":"0ea626e7-b104-4ab8-aae5-7fa5070318d4"}':
+              .: {}
+              'f:apiVersion': {}
+              'f:blockOwnerDeletion': {}
+              'f:controller': {}
+              'f:kind': {}
+              'f:name': {}
+              'f:uid': {}
+data:
+  admin.enabled: 'true'
+  statusbadge.enabled: 'false'
+  resource.exclusions: ''
+  ga.trackingid: ''
+  repositories: ''
+  ga.anonymizeusers: 'false'
+  help.chatUrl: ''
+  url: 'https://openshift-gitops-server-openshift-gitops.apps.one.ocp4.nolabs.live'
+  help.chatText: ''
+  kustomize.buildOptions: ''
+  resource.inclusions: ''
+  oidc.config: >
+    name: Keycloak
+
+    issuer:
+    https://keycloak-openshift-gitops.apps.one.ocp4.nolabs.live/auth/realms/argocd
+
+    clientid: argocd
+
+    clientsecret: $oidc.keycloak.clientSecret
+
+    requestedscope:
+
+    - openid
+
+    - profile
+
+    - email
+
+    - groups
+  repository.credentials: ''
+  users.anonymous.enabled: 'false'
+  configManagementPlugins: ''
+  application.instanceLabelKey: ''
