@@ -3,6 +3,8 @@ kind: ArgoCD
 metadata:
   finalizers:
   - argoproj.io/finalizer
+  labels:
+    app.kubernetes.io/part-of: argocd
   name: openshift-gitops
   namespace: openshift-gitops
 spec:
