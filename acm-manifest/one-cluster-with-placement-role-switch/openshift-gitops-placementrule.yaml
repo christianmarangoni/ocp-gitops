@@ -4,7 +4,7 @@ metadata:
   name: openshift-gitops-placementrule
   namespace: openshift-gitops
   labels:
-    app: openshift-gitops
+    app: argocd
 spec:
   clusterConditions:
     - type: ManagedClusterConditionAvailable

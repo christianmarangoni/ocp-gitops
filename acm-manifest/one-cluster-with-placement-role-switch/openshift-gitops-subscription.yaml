@@ -4,8 +4,8 @@ metadata:
   name: openshift-gitops-subscription
   namespace: openshift-gitops
   labels:
-    app: openshift-gitops
-    app.kubernetes.io/part-of: openshift-gitops
+    app: argocd
+    app.kubernetes.io/part-of: argocd
     apps.open-cluster-management.io/reconcile-rate: high
   annotations:
     apps.open-cluster-management.io/deployables: 
@@ -14,8 +14,9 @@ metadata:
     apps.open-cluster-management.io/git-path: config/gitops-operator
     apps.open-cluster-management.io/reconcile-option: replace
 spec:
-  channel:  ns-channel-ocpgitops/channel-openshift-gitops
+  channel: ns-channel-ocpgitops/channel-openshift-gitops
   placement:
     placementRef:
       kind: PlacementRule
       name: openshift-gitops-placementrule
+      
