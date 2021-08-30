@@ -1,4 +1,4 @@
 resources:
-  - argocd_openshift-gitops_sso.yaml
+  - argocd_openshift-gitops_ha_full-function
   - argocd-rbac-cm.yaml
   - clusterrolebinding.yaml
