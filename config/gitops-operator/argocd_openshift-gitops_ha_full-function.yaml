@@ -30,7 +30,7 @@ spec:
     route:
       enabled: false
   ha:
-    enabled: false
+    enabled: true
     resources:
       limits:
         cpu: 500m
@@ -71,6 +71,14 @@ spec:
       requests:
         cpu: 250m
         memory: 256Mi
+  resourceExclusions: |
+    - apiGroups:
+      - tekton.dev
+      clusters:
+      - '*'
+      kinds:
+      - TaskRun
+      - PipelineRun
   server:
     autoscale:
       enabled: true
